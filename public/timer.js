@@ -17,7 +17,7 @@ let email="";
 $(document).ready(function(){
     startandstopbutton = document.getElementById('startandstopbutton');
     counterbutton = document.getElementById('counterbutton');
-    let hash= location.hash;//will include the #
+    let hash = location.hash;//will include the #
     let hashparts = hash.split("#");
     const cookies = document.cookie;
     const cookieValue = document.cookie
@@ -50,8 +50,7 @@ const saveRapidStepTest = (rapidStepTest) => {
             401: () => window.location.href="/",
         },
         headers: { "suresteps.session.token": usertoken},
-        contentType: "application/text",
-        dataType: 'text'
+        contentType: "application/json"
     });
 
 }
@@ -84,7 +83,7 @@ const validateToken = () => {
     let tokenEmail="";
     $.ajax({
        type: 'GET',
-        url: '/validate/'+usertoken,
+        url: '/validate',
         success: function(data){
            if (data==""){
              window.location="/"
