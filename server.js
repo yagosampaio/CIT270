@@ -50,14 +50,14 @@ app.get("/",(req, res) => {
     res.send("Hello Yago");
 });
 
-app.get("/validate", async (req, res) =>{
+app.get("/validate", async(req, res) =>{
     const loginToken = req.cookies.stedicookie;
     console.log("loginToken", loginToken);
     const loginUser = await redisClient.hGet("TokenMap",loginToken);
     res.send(loginUser);
 }); //Adding the Validate URL
 
-app.post('/login', async (req,res) =>{
+app.post('/login', async(req,res) =>{
     const loginUser = req.body.userName;
     const loginPassword = req.body.password; //Access the password data in the body
     console.log('Login username: '+ loginUser);
@@ -82,7 +82,7 @@ https.createServer(
     {
         key: fs.readFileSync('./server.key'),
         cert: fs.readFileSync('./server.cert'),
-        ca:fs.readFileSync('./chain.pem')
+        ca: fs.readFileSync('./chain.pem')
     },
     app
 ).listen(port, ()=>{
