@@ -57,6 +57,7 @@ app.get("/validate", async(req, res) =>{
     res.send(loginUser);
 }); //Adding the Validate URL
 
+
 app.post('/login', async(req,res) =>{
     const loginUser = req.body.userName;
     const loginPassword = req.body.password; //Access the password data in the body
