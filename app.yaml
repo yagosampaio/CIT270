@@ -1,0 +1,35 @@
+apiVersionL apps/v1
+kind: Deployment
+metadata:
+  name: cit270yagoservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cit270yagoservice
+  template:
+    metadata:
+      name: cit270yagoservice
+      labels:
+        app: cityagoservice
+    spec:
+      containers:
+      - name: cityagoservice
+        image: mythic-producer-379820/yago-api
+        volumeMounts:
+        - name: ssl
+          mountPath: "/etc/letsencrypt/live/SSL"
+        command: ["npm"]
+        args: ["run", "start"]
+        resources:
+          requests:
+            cpu: 0.125
+            memory: 500Mi
+          limits:
+            cpu: 0.125
+            memory: 600Mi
+        imagePullPolicy: Always
+      volumes:
+      - name: ssl
+        secret:
+          secretName: yagocerts
