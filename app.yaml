@@ -68,7 +68,7 @@ spec:
       paths:
       - path: /
         pathType: Prefix
-        beckend:
+        backend:
           service:
           # needs to match the name of the NodePort Service
             name: stedi-yagooliveira-nodeport
