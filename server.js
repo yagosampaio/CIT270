@@ -8,7 +8,7 @@ const bodyParser = require ("body-parser");
 
 const Redis = require('Redis'); // The library
 
-const redisClient = Redis.createClient({url:"redis://127.0.0.1:6379"}); //This points to redis
+const redisClient = Redis.createClient({url:"redis:default:iHNwiN11adbBPZFI6Bd@redis-stedi-yago:6379"}); //This points to redis
 
 const {v4: uuidv4} = require('uuid'); //universely unique identifier
 
@@ -75,7 +75,7 @@ app.post('/login', async(req,res) =>{
 });
 
 app.listen(port, () => {
-  // redisClient.connect();
+   redisClient.connect();
    console.log("listening");
 });
 
