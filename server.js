@@ -74,19 +74,19 @@ app.post('/login', async(req,res) =>{
     }   
 });
 
-//app.listen(port, () => {
-//    redisClient.connect();
-//    console.log("listening");
-//});
-
-https.createServer(
-    {
-        key: fs.readFileSync('/etc/letsencrypt/live/yagooliveira.cit270.com/privkey.pem'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/yagooliveira.cit270.com/cert.pem'),
-        ca: fs.readFileSync('/etc/letsencrypt/live/yagooliveira.cit270.com/fullchain.pem')
-    },
-    app
-).listen(port, ()=>{
-    redisClient.connect();
-    console.log('listening on port: '+port);
+app.listen(port, () => {
+  // redisClient.connect();
+   console.log("listening");
 });
+
+// https.createServer(
+//     {
+//         key: fs.readFileSync('/etc/letsencrypt/live/yagooliveira.cit270.com/privkey.pem'),
+//         cert: fs.readFileSync('/etc/letsencrypt/live/yagooliveira.cit270.com/cert.pem'),
+//         ca: fs.readFileSync('/etc/letsencrypt/live/yagooliveira.cit270.com/fullchain.pem')
+//     },
+//     app
+// ).listen(port, ()=>{
+//     redisClient.connect();
+//     console.log('listening on port: '+port);
+// });

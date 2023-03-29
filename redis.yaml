@@ -25,7 +25,7 @@ spec:
           - name: REDIS_PASS
             valueFrom:
               secretKeyRef:
-                name: redis-secrets-yago
+                name: redits-secrets-yago
                 key: REDIS_PASS
           volumeMounts:
             - name: redis-yago-volume

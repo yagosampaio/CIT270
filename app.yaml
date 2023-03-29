@@ -1,4 +1,4 @@
-apiVersionL apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cit270yagoservice
@@ -11,11 +11,11 @@ spec:
     metadata:
       name: cit270yagoservice
       labels:
-        app: cityagoservice
+        app: cit270yagoservice
     spec:
       containers:
-      - name: cityagoservice
-        image: mythic-producer-379820/yago-api
+      - name: cit270yagoservice
+        image: gcr.io/mythic-producer-379820/yago-api
         volumeMounts:
         - name: ssl
           mountPath: "/etc/letsencrypt/live/SSL"
@@ -33,3 +33,15 @@ spec:
       - name: ssl
         secret:
           secretName: yagocerts
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: cit270yagoservice-loadbalancer
+# spec:
+#   selector:
+#     app: cit270yagoservice
+#   type: LoadBalancer
+#   ports:
+#   - port: 443
+#     targetPort: 443
